@@ -1,0 +1,24 @@
+{
+  "name": "portal-spotify-app",
+  "version": "1.0.0",
+  "description": "a spotify connected app that helps a user know its top artists of all time and much more.",
+  "main": "index.js",
+  "proxy": "http://localhost:8888",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "server": "nodemon index.js",
+    "client": "cd client && npm run dev"
+  },
+  "author": "Jasprit Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "stringify": "^5.2.0"
+  }
+}

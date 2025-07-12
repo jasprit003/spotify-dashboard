@@ -6,11 +6,12 @@ const axios = require('axios')
 const path = require('path')
 
 const app = express()
-const port = 8888
 
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 const REDIRECT_URI = process.env.REDIRECT_URI
+const FRONTEND_URI = process.env.FRONTEND_URI
+const PORT = process.env.PORT || 8888
 
 // utility function
 const generateRandomString = length => {
@@ -73,8 +74,7 @@ app.get('/callback', (req, res) => {
         })
 
         // redirecting to react app along with the tokens
-        const redirectUri = process.env.FRONTEND_URI || 'http://localhost:5173'
-        res.redirect(`${redirectUri}/?${qureyParams}`)
+        res.redirect(`${FRONTEND_URI}/?${qureyParams}`)
       } else {
         // res.send(response);
         res.redirect(
@@ -122,6 +122,6 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.listen(port, () => {
-  console.log(`Express app up and running at https://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Express app up and running at https://localhost:${PORT}`)
 })

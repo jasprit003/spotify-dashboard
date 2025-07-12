@@ -6,6 +6,10 @@ import AnimatedBackground from '../components/AnimatedBackground';
 
 import { display_regular } from '../styles/font-styles';
 
+const LOGIN_URI =
+  process.env.NODE_ENV !== 'production'
+    ? 'http://localhost:8888/login'
+    : 'https://your-production-url.com/login';
 const Login = () => {
   return (
     <Wrapper>
@@ -17,7 +21,7 @@ const Login = () => {
         </Text>
       </Heading>
       <LoginSection>
-        <Button href="http://localhost:8888/login">Login with Spotify</Button>
+        <Button href={LOGIN_URI}>Login with Spotify</Button>
         <Undertext>
           *No data stored. No passwords saved. Just your music insights.
         </Undertext>

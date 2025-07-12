@@ -9,7 +9,7 @@ import { display_regular } from '../styles/font-styles';
 const LOGIN_URI =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:8888/login'
-    : 'https://your-production-url.com/login';
+    : 'https://spotify-dashboard-zl5y.onrender.com/login';
 const Login = () => {
   return (
     <Wrapper>
